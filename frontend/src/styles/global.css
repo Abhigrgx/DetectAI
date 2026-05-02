@@ -1,0 +1,223 @@
+:root {
+  --bg: #f3efe6;
+  --bg-alt: #fffaf0;
+  --panel: #fffcf6;
+  --line: #d6cdbd;
+  --text: #1f1b14;
+  --muted: #6b5f4b;
+  --ai: #b74217;
+  --human: #177b5b;
+  --accent: #f0b63f;
+  --error: #8f1e10;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 20% 10%, rgba(240, 182, 63, 0.25), transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(183, 66, 23, 0.12), transparent 45%),
+    linear-gradient(180deg, var(--bg), var(--bg-alt));
+  min-height: 100vh;
+}
+
+.shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+
+.hero {
+  padding: 1rem 0 2rem;
+  animation: rise 500ms ease-out;
+}
+
+.badge {
+  display: inline-block;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.3rem 0.8rem;
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: #fff;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+  margin-top: 0.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.lower {
+  margin-top: 1rem;
+  animation: rise 450ms ease-out;
+}
+
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--panel), white 20%);
+  padding: 1rem;
+  backdrop-filter: blur(4px);
+}
+
+label {
+  display: block;
+  margin: 0.8rem 0 0.4rem;
+  font-weight: 600;
+}
+
+textarea,
+input[type="file"] {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.7rem;
+  font: inherit;
+  background: #fff;
+}
+
+.actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.6rem;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  background: var(--text);
+  color: #fff;
+  padding: 0.7rem 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button[type="button"] {
+  background: #6c6357;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+.disclaimer {
+  margin-top: 0.9rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.error {
+  color: var(--error);
+  font-weight: 700;
+}
+
+.meter {
+  margin-bottom: 0.9rem;
+}
+
+.meter-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.2rem;
+}
+
+.meter-track {
+  background: #ece4d4;
+  border-radius: 999px;
+  overflow: hidden;
+  height: 0.7rem;
+}
+
+.meter-fill {
+  height: 100%;
+  transition: width 350ms ease;
+}
+
+.meter-fill.ai {
+  background: linear-gradient(90deg, #e86f43, var(--ai));
+}
+
+.meter-fill.human {
+  background: linear-gradient(90deg, #35a67f, var(--human));
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.feature-item {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.6rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.92rem;
+  background: #fff;
+}
+
+.heatmap-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.heatmap-card {
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--ai);
+  border-radius: 12px;
+  padding: 0.75rem;
+  background: #fff;
+}
+
+.heatmap-card header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.heatmap-card ul {
+  margin: 0.4rem 0 0;
+  padding-left: 1rem;
+  color: var(--muted);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .grid,
+  .lower,
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
