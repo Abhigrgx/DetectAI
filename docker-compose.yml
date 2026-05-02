@@ -1,0 +1,31 @@
+services:
+  backend:
+    build: ./backend
+    container_name: authentitext-backend
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: authentitext-frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: authentitext-db
+    environment:
+      POSTGRES_USER: authentitext
+      POSTGRES_PASSWORD: authentitext
+      POSTGRES_DB: authentitext
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
