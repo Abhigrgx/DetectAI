@@ -1,0 +1,9 @@
+Academic writing requires nuanced evidence, clear attribution, and careful argument structure that evolves over sections.
+
+===
+
+Responsible AI policy should include transparent limitations, red-team audits, and stakeholder review before deployment.
+
+===
+
+Machine learning models can overfit to narrow datasets, reducing external validity and harming reliability in real environments.
